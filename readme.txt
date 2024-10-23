@@ -1,2 +1,1 @@
-kjcdjknvkdkjknkjeefjjs
-lkflkslfnsndnslnal
+hi, this is my start to basic html coding.
