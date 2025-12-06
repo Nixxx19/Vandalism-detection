@@ -99,7 +99,7 @@ vandalism/
 
 <img width="634" height="305" alt="Screenshot 2025-12-06 at 8 53 14 PM" src="https://github.com/user-attachments/assets/52d14a76-fdf7-4be6-a2d1-312899807942" />
 
-*Complete detection showing vandalism (red boxes), person detection (blue boxes), face detection (yellow boxes), and pose estimation (skeleton overlay)*
+*Complete detection showing vandalism (red boxes), person detection (red boxes), face detection (yellow boxes), and pose estimation (skeleton overlay)*
 
 ## Notes
 
