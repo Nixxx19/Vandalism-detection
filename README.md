@@ -80,6 +80,27 @@ vandalism/
 └── runs/detect/inference/ # Results storage
 ```
 
+## Output Examples
+
+### Example 1: Vandalism Detection on Brick Wall
+
+<img width="334" height="211" alt="Vandalism detection on a brick wall" src="https://github.com/user-attachments/assets/237ed3ba-63f7-491e-9dd7-a116191047f2" />
+
+*Graffiti detected on a brick wall with confidence scores displayed.*
+
+
+### Example 2: Multiple Graffiti Detections
+
+<img width="465" height="194" alt="Screenshot 2025-12-06 at 8 53 42 PM" src="https://github.com/user-attachments/assets/01fb461f-21b7-4c8f-8e68-3187acc5c63c" />
+
+*Detection of multiple graffiti elements with individual bounding boxes and confidence scores*
+
+### Example 3: Combined Detection (Vandalism + Person + Pose)
+
+<img width="634" height="305" alt="Screenshot 2025-12-06 at 8 53 14 PM" src="https://github.com/user-attachments/assets/52d14a76-fdf7-4be6-a2d1-312899807942" />
+
+*Complete detection showing vandalism (red boxes), person detection (blue boxes), face detection (yellow boxes), and pose estimation (skeleton overlay)*
+
 ## Notes
 
 - Models are loaded lazily on first request (may take a moment)
