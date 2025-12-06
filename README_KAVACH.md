@@ -1,10 +1,10 @@
-# 🛡️ Kavach - Graffiti Detection Web Application
+# 🛡️ Kavach - Vandalism Detection Web Application
 
-A modern, beautiful web interface for graffiti detection with person and pose estimation using AI.
+A modern, beautiful web interface for vandalism detection with person and pose estimation using AI.
 
 ## Features
 
-- 📸 **Image Upload & Processing** - Upload images and detect graffiti, persons, and poses
+- 📸 **Image Upload & Processing** - Upload images and detect vandalism, persons, and poses
 - 🎥 **Video Upload & Processing** - Process videos frame by frame
 - 🎨 **Modern UI/UX** - Beautiful, responsive design with dark theme
 - 📊 **Confidence Threshold Control** - Adjustable detection sensitivity (1-100%)
@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ```
 
 3. **Ensure models are in place:**
-   - Graffiti model: `train/weights/best.pt`
+   - Vandalism model: `train/weights/best.pt`
    - Human detection model: `yolo11n.pt`
 
 ## Running the Application

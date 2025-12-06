@@ -473,7 +473,7 @@ def process_video(graffiti_model, person_detector, source, conf, human_conf, iou
             )
             
             # Filter out graffiti detections that overlap with persons or faces
-            graffiti_results = filter_graffiti_overlapping_persons(graffiti_results, human_results, person_detector, frame_rgb)
+            graffiti_results = filter_graffiti_overlapping_persons(graffiti_results, human_results, person_detector, frame_rgb, haar_face_detector)
             
             # Draw graffiti detections
             annotated_frame = graffiti_results[0].plot()

@@ -152,8 +152,8 @@ class HaarFaceDetector:
                             face_y2 = fy2 + y1
                             
                             # Ensure face coordinates are within image bounds
-                            face_x = max(0, min(face_x, w))
-                            face_y = max(0, min(face_y, h))
+                            face_x = max(0, min(face_x, w-1))
+                            face_y = max(0, min(face_y, h-1))
                             face_x2 = max(face_x+1, min(face_x2, w))
                             face_y2 = max(face_y+1, min(face_y2, h))
                             

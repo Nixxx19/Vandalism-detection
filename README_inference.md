@@ -1,7 +1,7 @@
 # Running YOLOv11 Inference with Human Detection and MediaPipe Pose Estimation
 
 This script runs dual-model inference:
-1. **Graffiti Detection**: Your trained YOLOv11 model for detecting graffiti
+1. **Vandalism Detection**: Your trained YOLOv11 model for detecting vandalism
 2. **Human Detection**: YOLOv11 model for detecting people
 3. **MediaPipe Pose**: Pose estimation on detected humans
 
@@ -95,12 +95,12 @@ python run_inference.py \
 ## Features
 
 ### Dual Model Detection
-- **Graffiti Detection**: Detects graffiti using your trained model (shown with default YOLO colors)
+- **Vandalism Detection**: Detects vandalism using your trained model (shown with default YOLO colors)
 - **Human Detection**: Detects people using YOLOv11 (shown with blue bounding boxes)
 - **MediaPipe Pose**: Applies pose estimation on detected humans (shown with green keypoints and red connections)
 
 ### Visualization
-- Graffiti detections: Default YOLO annotation style
+- Vandalism detections: Default YOLO annotation style
 - Human bounding boxes: Blue rectangles with "Person" label
 - Pose keypoints: Green circles for joints
 - Pose connections: Red lines connecting body parts
@@ -108,14 +108,14 @@ python run_inference.py \
 ## Output
 
 Results will be saved to `runs/detect/inference/` (or your custom project/name path) with:
-- Annotated images/videos showing both graffiti and human detections with pose estimation
+- Annotated images/videos showing both vandalism and human detections with pose estimation
 - Optional: `.txt` label files (if `--save-txt` is used)
 
 ## Command Line Arguments
 
-### Graffiti Detection
-- `--model`: Path to graffiti detection model (default: `my_model.pt`)
-- `--conf`: Confidence threshold for graffiti (default: 0.25)
+### Vandalism Detection
+- `--model`: Path to vandalism detection model (default: `my_model.pt`)
+- `--conf`: Confidence threshold for vandalism (default: 0.25)
 - `--iou`: IoU threshold for NMS (default: 0.7)
 
 ### Human Detection
