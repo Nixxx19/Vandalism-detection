@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavach - Graffiti Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🛡️ Kavach</h1>
+                <p class="tagline">Advanced AI-Powered Graffiti Detection System</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-card">
+                    <div class="card-header">
+                        <h2>Get Started</h2>
+                        <p class="subtitle">Choose your detection method</p>
+                    </div>
+                    
+                    <div class="options-grid">
+                        <!-- Upload Option -->
+                        <div class="option-card" id="uploadOption">
+                            <div class="option-icon">📁</div>
+                            <h3>Upload Media</h3>
+                            <p>Process images or videos from your device</p>
+                            
+                            <div class="option-card-content">
+                                <div>
+                                    <div class="upload-area" id="uploadArea">
+                                        <div class="upload-icon">📤</div>
+                                        <p class="upload-text">Drag & drop files here</p>
+                                        <p class="upload-hint">or click to browse</p>
+                                        <input type="file" id="fileInput" accept="image/*,video/*" hidden>
+                                    </div>
+                                    
+                                    <div class="file-info" id="fileInfo" style="display: none;">
+                                        <div class="file-details">
+                                            <span class="file-name" id="fileName"></span>
+                                            <span class="file-size" id="fileSize"></span>
+                                        </div>
+                                        <button class="btn-remove" id="removeFile">✕</button>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="settings">
+                                        <label for="confSlider">Confidence: <span id="confValue">11%</span></label>
+                                        <input type="range" id="confSlider" min="1" max="100" value="11" class="slider">
+                                    </div>
+
+                                    <button class="btn-primary" id="processBtn" disabled>
+                                        <span class="btn-text">🚀 Process</span>
+                                        <span class="btn-loader" style="display: none;">⏳ Processing...</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Live Detection Option -->
+                        <div class="option-card" id="liveOption">
+                            <div class="option-icon">📹</div>
+                            <h3>Live Detection</h3>
+                            <p>Real-time detection using your webcam</p>
+                            
+                            <div class="option-card-content">
+                                <div class="live-placeholder-area">
+                                    <div class="live-placeholder-icon">🎥</div>
+                                    <p class="live-placeholder-text">Click Start Live to begin</p>
+                                    <p class="live-placeholder-hint">Real-time detection will appear here</p>
+                                </div>
+                                
+                                <div>
+                                    <div class="settings">
+                                        <label for="liveConfSlider">Confidence: <span id="liveConfValue">11%</span></label>
+                                        <input type="range" id="liveConfSlider" min="1" max="100" value="11" class="slider">
+                                    </div>
+
+                                    <button class="btn-live" id="liveBtn">
+                                        <span class="btn-text">📹 Start Live</span>
+                                        <span class="btn-stop-text" style="display: none;">⏹️ Stop</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Live Detection Section -->
+            <section class="live-section" id="liveSection" style="display: none;">
+                <div class="live-card">
+                    <h2>Live Detection</h2>
+                    <div class="live-container">
+                        <div class="live-video-wrapper">
+                            <video id="webcamVideo" autoplay playsinline></video>
+                            <div class="live-overlay">
+                                <div class="live-status" id="liveStatus">🔴 LIVE</div>
+                            </div>
+                        </div>
+                        <div class="live-result-wrapper">
+                            <canvas id="processedCanvas"></canvas>
+                            <div class="live-placeholder" id="livePlaceholder">
+                                <p>Processed frames will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="live-controls">
+                        <div class="live-settings">
+                            <label for="liveConfSlider">Confidence: <span id="liveConfValue">11%</span></label>
+                            <input type="range" id="liveConfSlider" min="1" max="100" value="11" class="slider">
+                        </div>
+                        <div class="live-fps">
+                            <span>FPS: <span id="fpsCounter">0</span></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-card">
+                    <h2>Results</h2>
+                    <div class="result-container" id="resultContainer">
+                        <!-- Result will be displayed here -->
+                    </div>
+                    <button class="btn-secondary" id="downloadBtn" style="display: none;">
+                        💾 Download Result
+                    </button>
+                </div>
+            </section>
+
+            <!-- Past Runs Section -->
+            <section class="past-runs-section">
+                <div class="past-runs-card">
+                    <h2>Past Runs</h2>
+                    <div class="gallery" id="gallery">
+                        <div class="loading" id="galleryLoading">Loading past runs...</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
+
