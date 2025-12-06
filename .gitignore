@@ -47,11 +47,11 @@ Thumbs.db
 *.log
 logs/
 
-# Model files (uncomment if you don't want to track large model files)
-# *.pt
-# *.pth
-# *.h5
-# *.ckpt
+# Model files
+*.pt
+*.pth
+*.h5
+*.ckpt
 
 # Training outputs
 train/weights/
