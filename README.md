@@ -2,6 +2,18 @@
 
 A modern, beautiful web interface for vandalism detection with person and pose estimation using AI.
 
+## 🚀 Powered By AI
+
+Kavach integrates multiple computer vision techniques for robust detection:
+
+- **YOLOv11** – High-performance real-time object detection  
+  - Custom-trained vandalism (graffiti) detection model  
+  - Human/person detection model
+- **MediaPipe** – Human pose estimation (skeleton overlay)
+- **Haar Cascade Classifiers** – Lightweight and fast face detection
+
+These models work together to provide **context-aware vandalism detection** with visual explainability.
+
 ## Features
 
 - 📸 **Image Upload & Processing** - Upload images and detect vandalism, persons, and poses
